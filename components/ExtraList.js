@@ -88,7 +88,7 @@ export default function ExtraList({ pst }) {
 
       <div className="col-sm-5 vh-100 overflow-auto gx-2 column_morph">
         <div
-          className="container mt-3"
+          className="container mt-3 extra_window_all"
         >
           <div className="row g-0">
             <div onClick={prev} className={`col-1 extra_window_left extra_list_${(pos > 0) ? 'on' : 'off'}`}></div>
