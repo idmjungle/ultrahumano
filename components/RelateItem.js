@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useRouter } from 'next/router';
 
-export default function PageItem({pst,num,show}) {
+export default function RelateItem({pst,num}) {
 
     const Router = useRouter()
 
@@ -63,20 +63,13 @@ export default function PageItem({pst,num,show}) {
   
 
     return (
-          <div id={`num_${num}`} className={`col-6 col-sm-6 col-md-6 ${(Router.route === '/search')? 'col-lg-4' : 'col-lg-3'} mb-4`}>
+          <div id={`num_${num}`} className={`col-6 col-md-4 mb-4 `}>
             <Link href={`/${link}/${pst.id}-${pst.slug}`}>
               <a
-                className={`square index ${pst.acf.page} full_rounded d-block ${(show >= num ? 'scale-in-hor-center' : 'start')}`}
+                className={`square index ${pst.acf.page} full_rounded d-block`}
                 style={{backgroundImage: `url(${pst.x_featured_media_large})`}}
               >
-                {(pst.acf.page === 'reviews' && Router.route !== '/search') &&
-                <h4 className={`ultra_${pst.acf.page} m-2 m-md-3 p-2 round_cube`}>{revType}</h4>
-                }
-
-                {Router.route === '/search' &&
-                  <h4 className={`ultra_${pst.acf.page} m-2 p-1 round_cube`}>{search}</h4>
-                }
-                <div className={`ultra_${pst.acf.page} m-2 m-md-3 p-2 round_cube`}>
+                <div className={`ultra_${pst.acf.page} m-3 p-2 round_cube`}>
                   <span dangerouslySetInnerHTML={{__html: pst.title.rendered}}></span>
                 </div>
               </a>

@@ -51,7 +51,7 @@ export default function LatestItem({ pst }) {
   }
 
   return (
-    <div className="col-12 col-sm-6 mb-4">
+    <div className="col-6 col-sm-6 mb-4">
       <Link href={`/${link}/${pst.id}-${pst.slug}`}>
         <a
           className={`square ${pst.acf.page} d-block full_rounded`}

@@ -9,10 +9,11 @@ import { StickyShareButtons } from "sharethis-reactjs";
 import Image from "next/image";
 import ReviewScore from "@/components/ReviewScore";
 import ArticleInfo from "@/components/ArticleInfo";
+import ArticleRelated from "@/components/ArticleRelated";
 import ReviewInfo from "@/components/ReviewInfo";
 import ReviewType from "@/components/ReviewType";
 
-export default function ReviewPage({ pst }) {
+export default function ReviewPage({ pst, relate }) {
   const router = useRouter();
   const [pos, setPos] = useState(0);
 
@@ -25,8 +26,8 @@ export default function ReviewPage({ pst }) {
       const place = winRev.scrollTop;
       setPos(place);
       if (place > 100) {
-        setLeft("col-sm-4 left_small");
-        setRight("col-sm-6");
+        setLeft("col-sm-4 col-md-4 col-lg-4 left_small");
+        setRight("col-sm-6 col-md-6 col-lg-6");
       }
     };
 
@@ -58,7 +59,7 @@ export default function ReviewPage({ pst }) {
     >
       <div
         id="column_info"
-        className={`${left} vh-100 overflow-auto column_morph`}
+        className={`${left} vh-100 overflow-auto column_morph mt-3 mt-md-0`}
       >
         <ReviewType extra={pst.acf} />
         <div
@@ -82,7 +83,7 @@ export default function ReviewPage({ pst }) {
       </div>
       <div
         id="main_scroll"
-        className={`${right} vh-100 overflow-auto gx-2 column_morph`}
+        className={`${right} vh-100 overflow-auto column_morph`}
       >
         <article>
           <div
@@ -112,10 +113,10 @@ export default function ReviewPage({ pst }) {
           <div className="square_top ultra_reviews">Final</div>
           <div className="ultra_text p-2 review_window_bottom">
             <div className="row">
-              <div className="col-md-5">
+              <div className="col-md-5 order-2 order-md-1">
                 <ReviewScore num={pst.acf.points} />
               </div>
-              <div className="col-md-7">
+              <div className="col-md-7 order-1 order-md-2">
                 <span
                   dangerouslySetInnerHTML={{ __html: reviewText[3] }}
                 ></span>
@@ -132,7 +133,9 @@ export default function ReviewPage({ pst }) {
             height={70.4167}
           />
         </div>
-        {/* <h3 className="ultra_reviews 3 p-2">Mas reseñas...</h3> */}
+
+        <ArticleRelated relate={relate} type={'reviews'} />
+
         <div className="ultra_reviews square_top mt-3 p-2">
           <b>¿Que piensas?</b>
         </div>
@@ -198,12 +201,17 @@ export async function getStaticProps({ params: { slug } }) {
   slugNum = slugNum[0];
 
   const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts/${slugNum}`);
+  const rl = await fetch(`${API_URL}/wp-json/contextual-related-posts/v1/posts/${slugNum}`);
+
   const post = await pres.json();
+  const relate = await rl.json();
 
   return {
     props: {
       pst: post,
+      relate: relate
     },
     revalidate: 1,
   };
 }
+

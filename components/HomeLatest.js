@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 export default function HomeLatest( {posts} ) {
   return (
-    <div className="col-sm-4 vh-100 overflow-auto">
+    <div className="col-12 col-sm-4 vh-100 overflow-auto">
       <div className="row mt-3">
 
         {posts.map((pst) => (

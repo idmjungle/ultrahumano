@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 export default function SliderItem({sld,col,show}) {
 
-    const column = (col === show) ? 'col-sm-9' : 'col-sm-1'
+    const column = (col === show) ? 'col-9' : 'col-1'
     const colStr = (col === show) ? '0.6' : '1'
     const colName = (col === show) ? sld.x_categories.replace("Feature","").replace(", ","") : sld.acf.short_title
     const effect = (col === show) && 'flicker-in-1'
@@ -74,11 +74,11 @@ export default function SliderItem({sld,col,show}) {
     
     return (
         <Link href={`/${link}/${sld.id}-${sld.slug}`}>
-        <a className={`${column} vh-100 ultra_mid slider_item`} style={{backgroundImage: `linear-gradient(rgb(${bg}, ${colStr}), rgb(${bg}, ${colStr})), url(${sld.x_featured_media_large})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+        <a className={`${column} ultra_mid slider_item`} style={{backgroundImage: `linear-gradient(rgb(${bg}, ${colStr}), rgb(${bg}, ${colStr})), url(${sld.x_featured_media_large})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
             <div className="slider_info p-2">
             <div className={`title ${text}_text ${effect}`}>
                 <div className="top pb-3" dangerouslySetInnerHTML={{__html: sld.title.rendered}}></div>
-                <div className={`${line}_line`}></div>
+                <div className={`${line}_line d-none d-sm-block`}></div>
                 <span className="left_sub" dangerouslySetInnerHTML={{__html: sld.excerpt.rendered}}></span>
             </div>
 

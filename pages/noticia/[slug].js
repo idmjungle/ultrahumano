@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import NewsComm from "@/components/NewsComm";
 import Image from "next/image";
 import { DiscussionEmbed } from "disqus-react";
+import { StickyShareButtons } from "sharethis-reactjs";
 import { useRouter } from "next/router";
 
 export default function NewsPage({ pst, com }) {
@@ -61,7 +62,7 @@ export default function NewsPage({ pst, com }) {
     >
       <div
         id="column_info"
-        className={`${left} min-vh-100 overflow-auto column_morph`}
+        className={`${left} vh-100 overflow-auto column_morph mt-3 mt-md-0`}
       >
           <div id="sub_title" className="ultra_news full_rounded py-2 px-3 mt-3 top_left">
             Noticias
@@ -87,13 +88,15 @@ export default function NewsPage({ pst, com }) {
       </div>
       <div
         id="main_scroll"
-        className={`${right} vh-100 overflow-auto gx-2 column_morph`}
+        className={`${right} vh-100 overflow-auto column_morph`}
       >
 
-        <article
+        <article>
+          <div
           className="ultra_text review_window mt-3 p-3"
-          dangerouslySetInnerHTML={{ __html: pst.content.rendered }}
-        ></article>
+          dangerouslySetInnerHTML={{ __html: pst.content.rendered }}>
+          </div>
+        </article>
 
         <div className="text-end mt-2">
           <Image className="logo_end" src="/images/uh_22_logo.svg" alt="Fin" width={128} height={70.4167} />
@@ -112,7 +115,34 @@ export default function NewsPage({ pst, com }) {
         <div className="ultra_text p-2 review_window_bottom">
           <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
         </div>
-
+        <StickyShareButtons
+          config={{
+            alignment: "right", // alignment of buttons (left, right)
+            color: "social", // set the color of buttons (social, white)
+            enabled: true, // show/hide buttons (true, false)
+            font_size: 16, // font size for the buttons
+            hide_desktop: false, // hide buttons on desktop (true, false)
+            labels: "counts", // button labels (cta, counts, null)
+            language: "en", // which language to use (see LANGUAGES)
+            min_count: 0, // hide react counts less than min_count (INTEGER)
+            networks: [
+              // which networks to include (see SHARING NETWORKS)
+              "facebook",
+              "twitter",
+              "whatsapp",
+              "messenger",
+              "sms",
+              "email",
+            ],
+            padding: 12, // padding within buttons (INTEGER)
+            radius: 4, // the corner radius on each button (INTEGER)
+            show_total: true, // show/hide the total share count (true, false)
+            show_mobile: true, // show/hide the buttons on mobile (true, false)
+            show_toggle: true, // show/hide the toggle buttons (true, false)
+            size: 48, // the size of each button (INTEGER)
+            top: 300, // offset in pixels from the top of the page
+          }}
+        />
         <Footer type="news" />
       </div>
     </Layout>

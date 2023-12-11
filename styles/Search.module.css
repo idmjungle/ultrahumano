@@ -1,6 +1,7 @@
 .search_win .search_main {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 5000;
+  top: 0;
 }
 
 .search_form {
@@ -33,4 +34,27 @@
   border-radius: 20px;
   height: 50px;
 }
+
+.search_off {
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .search_but_close {
+    width: 75px !important;
+    height: 40px;
+    border-radius: 0px 20px 20px 0px !important;
+  }
+
+  .search_but {
+    height: 40px;
+  }
+
+  .search_inp {
+    height: 40px;
+    border-radius: 20px 0px 0px 20px !important;
+  }
+  
+}
+
 

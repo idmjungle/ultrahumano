@@ -15,7 +15,7 @@ export default function Slider( {slides}) {
   }, []);
 
   return (
-    <div className="col-sm-6 vh-100 g-0 d-none d-sm-block">
+    <div className="col-sm-6 slider_main g-0 overflow-hidden">
       <div className="row g-0">
       {slides.map((sld, i) => (
         

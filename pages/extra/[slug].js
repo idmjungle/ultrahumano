@@ -14,17 +14,14 @@ export default function ListPage({ pst }) {
   const extraType = pst.acf.extra_type;
   let TypeResult = null;
 
-
   switch (extraType) {
     case "lista":
-      TypeResult = <ExtraList pst={pst} />
+      TypeResult = <ExtraList pst={pst} />;
       break;
-  
+
     default:
       break;
   }
-
-
 
   return (
     <Layout
@@ -39,7 +36,6 @@ export default function ListPage({ pst }) {
       url={`https://ultrahumano.com${router.asPath}`}
     >
       {TypeResult}
-
     </Layout>
   );
 }

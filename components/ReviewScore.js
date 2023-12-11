@@ -36,7 +36,7 @@ export default function ReviewScore({ num }) {
   return (
 
     <div>
-      <svg xmlns="http://www.w3.org/2000/svg" className="me-2 mb-2" viewBox="0 0 398.999130322263227 279.333338095242652">
+      <svg xmlns="http://www.w3.org/2000/svg" className="me-md-2 mb-md-2" viewBox="0 0 398.999130322263227 279.333338095242652">
         {score <= 8 ? (
         <g id="lines">
           <rect className="cls-3" x=".00000952380924" y="119.714290476191309" width="398.998899999997775" height="59.857142857144936" />
