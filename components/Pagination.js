@@ -7,13 +7,15 @@ export default function Pagination({page, total}) {
   return (
     <>
       {page > 1 && (
-        <Link href={`/resenas?page=${page - 1}`}>
-          <a className='btn btn-secondary ultra_reviews full_rounded ultra_btn'>Previo</a>
+        <Link href={`/resenas?page=${page - 1}`}
+        className='btn btn-secondary ultra_reviews full_rounded ultra_btn'
+        >
+        Previo
         </Link>
       )}
       {page < lastPage && (
-        <Link href={`/resenas?page=${page + 1}`}>
-          <a className='btn btn-secondary ultra_reviews full_rounded ultra_btn'>Proximo</a>
+        <Link href={`/resenas?page=${page + 1}`} className='btn btn-secondary ultra_reviews full_rounded ultra_btn'>
+          Proximo
         </Link>
       )}
 

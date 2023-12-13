@@ -602,12 +602,12 @@ p {
 }
 
 .menu_icon {
-  position: absolute;
-  width: 48px;
-  height: auto;
-  right: 0px;
-  top: 0px;
-  cursor: pointer;
+  position: fixed !important;
+  width: 48px !important;
+  height: auto !important;
+  right: 0px !important;
+  top: 0px !important;
+  cursor: pointer !important;
 }
 
 .menu_icon_bot {
@@ -1401,7 +1401,7 @@ p {
 
   .menu_icon,
   .menu_icon_bot {
-    width: 64px;
+    width: 64px !important;
   }
 
   .square_top {

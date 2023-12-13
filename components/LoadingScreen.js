@@ -8,7 +8,7 @@ export default function LoadingScreen({ready}) {
       <div
         className={`${styles.loader} ${ready ? styles['slide-in-left'] : styles['slide-out-left']} ultra_reviews vh-100 d-flex justify-content-center`}
       >
-        <Image src={`${ready ? '/images/uh_loading.gif' : '/images/Empty.png' }`} alt="" className="position-absolute top-50" width="266px" height="146px"/>
+        <Image src={`${ready ? '/images/uh_loading.gif' : '/images/Empty.png' }`} alt="" className="position-absolute top-50" width={266} height={146}/>
       </div>
     </div>
   );

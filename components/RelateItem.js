@@ -62,15 +62,13 @@ export default function RelateItem({pst,num}) {
 
     return (
           <div id={`num_${num}`} className={`col-6 col-md-4 mb-4 `}>
-            <Link href={`/${link}/${pst.id}-${pst.slug}`}>
-              <a
+            <Link href={`/${link}/${pst.id}-${pst.slug}`}
                 className={`square index ${pst.acf.page} full_rounded d-block`}
-                style={{backgroundImage: `url(${pst.x_featured_media_large})`}}
+                style={{backgroundImage: `url(${pst.x_featured_media_large})`}} passHref
               >
                 <div className={`ultra_${pst.acf.page} m-3 p-2 round_cube`}>
                   <span dangerouslySetInnerHTML={{__html: pst.title.rendered}}></span>
                 </div>
-              </a>
             </Link>
           </div>
     )

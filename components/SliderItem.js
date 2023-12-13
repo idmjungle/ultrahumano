@@ -73,8 +73,8 @@ export default function SliderItem({sld,col,show}) {
     }
     
     return (
-        <Link href={`/${link}/${sld.id}-${sld.slug}`}>
-        <a className={`${column} ultra_mid slider_item`} style={{backgroundImage: `linear-gradient(rgb(${bg}, ${colStr}), rgb(${bg}, ${colStr})), url(${sld.x_featured_media_large})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+        <Link href={`/${link}/${sld.id}-${sld.slug}`}
+        className={`${column} ultra_mid slider_item`} style={{backgroundImage: `linear-gradient(rgb(${bg}, ${colStr}), rgb(${bg}, ${colStr})), url(${sld.x_featured_media_large})`, backgroundRepeat: "no-repeat", backgroundSize: "cover"}} passHref>
             <div className="slider_info p-2">
             <div className={`title ${text}_text ${effect}`}>
                 <div className="top pb-3" dangerouslySetInnerHTML={{__html: sld.title.rendered}}></div>
@@ -86,7 +86,6 @@ export default function SliderItem({sld,col,show}) {
                 <div>{colName}</div>
             </div>
             </div>
-        </a>
         </Link>
 
     )

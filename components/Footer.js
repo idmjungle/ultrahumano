@@ -11,10 +11,7 @@ export default function Footer({ type }) {
       className={`d-flex flex-wrap justify-content-between align-items-center my-2 g-0`}
     >
       {
-        (Router === '/') ? <Link href="/"><a
-        
-        className="col-md-8 d-flex mb-1 text-decoration-none"
-      >
+        (Router === '/') ? <Link className="col-md-8 d-flex mb-1 text-decoration-none" href="/" passHref>
         <svg
           version="1.1"
           id="Layer_1"
@@ -110,7 +107,7 @@ export default function Footer({ type }) {
             />
           </g>
         </svg>
-      </a></Link> : ""
+      </Link> : ""
       }
       
   

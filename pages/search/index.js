@@ -18,7 +18,7 @@ export default function SearchPage({ posts }) {
       setCount(count + 1);
     }, 50);
     return () => clearInterval(interval);
-  }, []);
+  }, [count]);
 
   return (
     <Layout title={`Resultados de ${searchName}`}>

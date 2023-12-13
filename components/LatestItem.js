@@ -52,11 +52,7 @@ export default function LatestItem({ pst }) {
 
   return (
     <div className="col-6 col-sm-6 mb-4">
-      <Link href={`/${link}/${pst.id}-${pst.slug}`}>
-        <a
-          className={`square ${pst.acf.page} d-block full_rounded`}
-          // style={{backgroundImage: `url(${pst.x_featured_media_large})`}}
-        >          
+      <Link href={`/${link}/${pst.id}-${pst.slug}`} className={`square ${pst.acf.page} d-block full_rounded`} passHref>
           <LazyLoadImage
             src={pst.x_featured_media_large}
             effect="blur"
@@ -69,7 +65,6 @@ export default function LatestItem({ pst }) {
           </h4>
           <div className={`ultra_${pst.acf.page} m-2 p-2 round_cube bottom`} dangerouslySetInnerHTML={{ __html: pst.title.rendered }}>
           </div>
-        </a>
       </Link>
     </div>
   );
