@@ -5,8 +5,6 @@ export default function RelateItem({pst,num}) {
 
     const Router = useRouter()
 
-    console.log(Router)
-
     let revType = ''
     let link = ''
     let search = ''

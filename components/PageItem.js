@@ -5,8 +5,6 @@ export default function PageItem({pst,num,show}) {
 
     const Router = useRouter()
 
-    console.log(Router)
-
     let revType = ''
     let link = ''
     let search = ''

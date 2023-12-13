@@ -182,13 +182,9 @@ export async function getStaticPaths() {
   );
   const posts = await res.json();
 
-  // console.log(posts)
-
   const paths = posts.map((pst) => ({
     params: { slug: pst.id + "-" + pst.slug },
   }));
-
-  // console.log(paths)
 
   return {
     paths,
