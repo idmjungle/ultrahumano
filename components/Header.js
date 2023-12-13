@@ -62,17 +62,19 @@ export default function Header() {
 
       <Search search={search} changedSearch={changedSearch} />
       <div className="d-none d-sm-block">
-        <img
+        <Image
           id="menu_open"
           onClick={opening}
-          style={{ width: "64px" }}
+          width={64}
+          height={50}
           className="menu_icon my-3 me-3"
           src="/images/uh_20_menu.svg"
           alt=""
         />
-        <img
+        <Image
           className="menu_icon_bot my-3 me-3"
-          style={{ width: "64px" }}
+          width={64}
+          height={64}
           src="/images/uh_search_new.svg"
           onClick={searchWin}
           alt=""

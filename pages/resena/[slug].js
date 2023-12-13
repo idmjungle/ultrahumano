@@ -176,38 +176,55 @@ export default function ReviewPage({ pst, relate }) {
   );
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(
-    `${API_URL}/wp-json/wp/v2/posts?_fields=id,slug&filter[posts_per_page]=-1`
-  );
-  const posts = await res.json();
+// export async function getStaticPaths() {
+//   const res = await fetch(
+//     `${API_URL}/wp-json/wp/v2/posts?_fields=id,slug&filter[posts_per_page]=-1`
+//   );
+//   const posts = await res.json();
 
-  const paths = posts.map((pst) => ({
-    params: { slug: pst.id + "-" + pst.slug },
-  }));
+//   const paths = posts.map((pst) => ({
+//     params: { slug: pst.id + "-" + pst.slug },
+//   }));
 
-  return {
-    paths,
-    fallback: true,
-  };
-}
+//   return {
+//     paths,
+//     fallback: true,
+//   };
+// }
 
-export async function getStaticProps({ params: { slug } }) {
+// export async function getStaticProps({ params: { slug } }) {
+//   let slugNum = slug.split("-");
+//   slugNum = slugNum[0];
+
+//   const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts/${slugNum}`);
+//   const rl = await fetch(`${API_URL}/wp-json/contextual-related-posts/v1/posts/${slugNum}`);
+
+//   const post = await pres.json();
+//   const relate = await rl.json();
+
+//   return {
+//     props: {
+//       pst: post,
+//       relate: relate
+//     },
+//     revalidate: 1,
+//   };
+// }
+
+export async function getServerSideProps({ query: { slug } }) {
   let slugNum = slug.split("-");
   slugNum = slugNum[0];
-
   const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts/${slugNum}`);
-  const rl = await fetch(`${API_URL}/wp-json/contextual-related-posts/v1/posts/${slugNum}`);
-
+  const rl = await fetch(
+    `${API_URL}/wp-json/contextual-related-posts/v1/posts/${slugNum}`
+  );
   const post = await pres.json();
   const relate = await rl.json();
 
   return {
     props: {
       pst: post,
-      relate: relate
-    },
-    revalidate: 1,
-  };
+      relate: relate,
+    }
+  }
 }
-
