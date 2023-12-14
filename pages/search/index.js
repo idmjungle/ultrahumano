@@ -50,7 +50,7 @@ export default function SearchPage({ posts }) {
 
 export async function getServerSideProps({ query: { term } }) {
   const pres = await fetch(
-    `${API_URL}/wp-json/wp/v2/posts?search=${term}&per_page=16&_fields=id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`
+    `https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts?search=${term}&per_page=16&_fields=id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`
   );
   const posts = await pres.json();
 

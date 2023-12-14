@@ -42,7 +42,7 @@ export default function ListPage({ pst }) {
 
 // export async function getStaticPaths() {
 //   const res = await fetch(
-//     `${API_URL}/wp-json/wp/v2/posts?_fields=id,slug&filter[posts_per_page]=-1`
+//     `https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts?_fields=id,slug&filter[posts_per_page]=-1`
 //   );
 //   const posts = await res.json();
 
@@ -60,7 +60,7 @@ export default function ListPage({ pst }) {
 //   let slugNum = slug.split("-");
 //   slugNum = slugNum[0];
 
-//   const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts/${slugNum}`);
+//   const pres = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts/${slugNum}`);
 //   const post = await pres.json();
 
 //   return {
@@ -74,9 +74,9 @@ export default function ListPage({ pst }) {
 export async function getServerSideProps({ query: { slug } }) {
   let slugNum = slug.split("-");
   slugNum = slugNum[0];
-  const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts/${slugNum}`);
+  const pres = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts/${slugNum}`);
   const rl = await fetch(
-    `${API_URL}/wp-json/contextual-related-posts/v1/posts/${slugNum}`
+    `https://data.ultrahumano.com/wordpress/wp-json/contextual-related-posts/v1/posts/${slugNum}`
   );
   const post = await pres.json();
   const relate = await rl.json();

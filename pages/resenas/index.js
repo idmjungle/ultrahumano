@@ -41,7 +41,7 @@ export async function getServerSideProps({ query: { page = 1 } }) {
   const start = +page === 1 ? 0 : (+page - 1) * PER_PAGE;
 
   const pres = await fetch(
-    `${API_URL}/wp-json/wp/v2/posts?categories=4&per_page=${PER_PAGE}&offset=${start}&_fields=id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`
+    `https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts?categories=4&per_page=${PER_PAGE}&offset=${start}&_fields=id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`
   );
 
   const posts = await pres.json();

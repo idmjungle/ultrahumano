@@ -14,9 +14,9 @@ export default function HomePage({posts,slides}) {
 
 
 export async function getStaticProps() {
-  const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts?_fields=id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`)
+  const pres = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts?_fields=id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`)
   const posts = await pres.json()
-  const sres = await fetch(`${API_URL}/wp-json/wp/v2/posts?categories=1&per_page=4&_fields=author,id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`)
+  const sres = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts?categories=1&per_page=4&_fields=author,id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`)
   const slides = await sres.json()
 
 

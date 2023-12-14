@@ -13,7 +13,7 @@ import ArticleRelated from "@/components/ArticleRelated";
 import ReviewInfo from "@/components/ReviewInfo";
 import ReviewType from "@/components/ReviewType";
 
-export default function ReviewPage({ pst, relate }) {
+export default function ReviewPage({ pst }) {
   const router = useRouter();
   const [pos, setPos] = useState(0);
 
@@ -37,9 +37,7 @@ export default function ReviewPage({ pst, relate }) {
     };
   }, []);
 
-  let reviewText = pst.content.rendered;
-
-  reviewText = reviewText.split("<p><!--more--></p>");
+  const reviewText = pst.content.rendered.split("<p><!--more--></p>");
 
   const disqusShortname = "ultrahumano";
   const disqusConfig = {
@@ -75,7 +73,7 @@ export default function ReviewPage({ pst, relate }) {
               className="left_sub"
               dangerouslySetInnerHTML={{ __html: pst.excerpt.rendered }}
             ></span>
-            <ReviewInfo extra={pst.acf} />
+            {/* <ReviewInfo extra={pst.acf} /> */}
 
             <ArticleInfo author={pst.x_author} date={pst.date} />
           </div>
@@ -134,7 +132,7 @@ export default function ReviewPage({ pst, relate }) {
           />
         </div>
 
-        <ArticleRelated relate={relate} type={'reviews'} />
+        {/* <ArticleRelated relate={relate} type={'reviews'} /> */}
 
         <div className="ultra_reviews square_top mt-3 p-2">
           <b>¿Que piensas?</b>
@@ -176,28 +174,13 @@ export default function ReviewPage({ pst, relate }) {
   );
 }
 
-// export async function getStaticPaths() {
-//   const res = await fetch(
-//     `${API_URL}/wp-json/wp/v2/posts?_fields=id,slug&filter[posts_per_page]=-1`
-//   );
-//   const posts = await res.json();
-
-//   const paths = posts.map((pst) => ({
-//     params: { slug: pst.id + "-" + pst.slug },
-//   }));
-
-//   return {
-//     paths,
-//     fallback: true,
-//   };
-// }
 
 // export async function getStaticProps({ params: { slug } }) {
 //   let slugNum = slug.split("-");
 //   slugNum = slugNum[0];
 
-//   const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts/${slugNum}`);
-//   const rl = await fetch(`${API_URL}/wp-json/contextual-related-posts/v1/posts/${slugNum}`);
+//   const pres = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts/${slugNum}`);
+//   const rl = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/contextual-related-posts/v1/posts/${slugNum}`);
 
 //   const post = await pres.json();
 //   const relate = await rl.json();
@@ -211,12 +194,28 @@ export default function ReviewPage({ pst, relate }) {
 //   };
 // }
 
+// export async function getStaticPaths() {
+//   const res = await fetch(
+//     `https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts?_fields=id,slug&filter[posts_per_page]=-1`
+//   );
+//   const posts = await res.json();
+
+//   const paths = posts.map((pst) => ({
+//     params: { slug: pst.id + "-" + pst.slug },
+//   }));
+
+//   return {
+//     fallback: true,
+//     paths,
+//   };
+// }
+
 export async function getServerSideProps({ query: { slug } }) {
   let slugNum = slug.split("-");
   slugNum = slugNum[0];
-  const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts/${slugNum}`);
+  const pres = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts/${slugNum}`);
   const rl = await fetch(
-    `${API_URL}/wp-json/contextual-related-posts/v1/posts/${slugNum}`
+    `https://data.ultrahumano.com/wordpress/wp-json/contextual-related-posts/v1/posts/${slugNum}`
   );
   const post = await pres.json();
   const relate = await rl.json();

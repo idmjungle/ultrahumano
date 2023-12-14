@@ -43,7 +43,7 @@ export default function ReviewsPage( {posts} ) {
 }
 
 export async function getStaticProps() {
-    const pres = await fetch(`${API_URL}/wp-json/wp/v2/posts?categories=3&per_page=16&_fields=id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`)
+    const pres = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts?categories=3&per_page=16&_fields=id,excerpt,title,slug,acf,categories,x_categories,x_featured_media_large`)
     const posts = await pres.json()
 
   
