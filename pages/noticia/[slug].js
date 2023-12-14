@@ -37,10 +37,13 @@ export default function NewsPage({ pst, com }) {
 
   let d = new Date(pst.date);
 
-  let dateString = [d.toLocaleDateString(),d.toLocaleTimeString()];
-  const ds = dateString.map((d,i) => <span key={i} className="info_data"> {d} </span>)
-
-  
+  let dateString = [d.toLocaleDateString(), d.toLocaleTimeString()];
+  const ds = dateString.map((d, i) => (
+    <span key={i} className="info_data">
+      {" "}
+      {d}{" "}
+    </span>
+  ));
 
   reviewText = reviewText.split("<p><!--more--></p>");
 
@@ -64,9 +67,12 @@ export default function NewsPage({ pst, com }) {
         id="column_info"
         className={`${left} vh-100 overflow-auto column_morph mt-3 mt-md-0`}
       >
-          <div id="sub_title" className="ultra_news full_rounded py-2 px-3 mt-3 top_left">
-            Noticias
-          </div>
+        <div
+          id="sub_title"
+          className="ultra_news full_rounded py-2 px-3 mt-3 top_left"
+        >
+          Noticias
+        </div>
         <div
           className="my-3 p-3 image_cube"
           style={{
@@ -80,9 +86,9 @@ export default function NewsPage({ pst, com }) {
               className="left_sub"
               dangerouslySetInnerHTML={{ __html: pst.excerpt.rendered }}
             ></span>
-          <div className="left_sub">
-            <span className="info_data">{pst.x_author}{" "}</span> {ds}
-          </div>
+            <div className="left_sub">
+              <span className="info_data">{pst.x_author} </span> {ds}
+            </div>
           </div>
         </div>
       </div>
@@ -90,16 +96,21 @@ export default function NewsPage({ pst, com }) {
         id="main_scroll"
         className={`${right} vh-100 overflow-auto column_morph`}
       >
-
         <article>
           <div
-          className="ultra_text review_window mt-3 p-3"
-          dangerouslySetInnerHTML={{ __html: pst.content.rendered }}>
-          </div>
+            className="ultra_text review_window mt-3 p-3"
+            dangerouslySetInnerHTML={{ __html: pst.content.rendered }}
+          ></div>
         </article>
 
         <div className="text-end mt-2">
-          <Image className="logo_end" src="/images/uh_22_logo.svg" alt="Fin" width={128} height={70.4167} />
+          <Image
+            className="logo_end"
+            src="/images/uh_22_logo.svg"
+            alt="Fin"
+            width={128}
+            height={70.4167}
+          />
         </div>
 
         <h3 className="ultra_text_rev full_rounded my-3 p-3">
@@ -186,18 +197,24 @@ export default function NewsPage({ pst, com }) {
 export async function getServerSideProps({ query: { slug } }) {
   let slugNum = slug.split("-");
   slugNum = slugNum[0];
-  const pres = await fetch(`https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts/${slugNum}`);
+  const pres = await fetch(
+    `https://data.ultrahumano.com/wordpress/wp-json/wp/v2/posts/${slugNum}`
+  );
+  const cres = await fetch(
+    `https://data.ultrahumano.com/wordpress/wp-json/wp/v2/comments?post=${slugNum}`
+  );
   const rl = await fetch(
     `https://data.ultrahumano.com/wordpress/wp-json/contextual-related-posts/v1/posts/${slugNum}`
   );
+  const comm = await cres.json();
   const post = await pres.json();
   const relate = await rl.json();
 
   return {
     props: {
       pst: post,
+      com: comm,
       relate: relate,
-    }
-  }
+    },
+  };
 }
-
