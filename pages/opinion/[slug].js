@@ -65,7 +65,7 @@ export default function OpinionPage({ pst, relate }) {
     >
       <div
         id="column_info"
-        className={`${left} vh-100 overflow-auto column_morph mt-4 mt-md-0`}
+        className={`${left} vh-100 column_morph mt-4 mt-md-0`}
       >
         <div
           id="sub_title"
