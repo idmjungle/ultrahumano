@@ -1242,7 +1242,7 @@ p {
   }
 
   .lift_bottom {
-    bottom: 48px;
+    bottom: 48px !important;
   }
 
   .menu_jump {
