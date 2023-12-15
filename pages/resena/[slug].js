@@ -57,7 +57,7 @@ export default function ReviewPage({ pst, relate }) {
     >
       <div
         id="column_info"
-        className={`${left} vh-100 column_morph mt-3 mt-md-0`}
+        className={`${left} overflow-auto column_morph mt-3 mt-md-0`}
       >
         <ReviewType extra={pst.acf} />
         <div

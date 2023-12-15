@@ -713,6 +713,7 @@ p {
   -o-transition: all 100ms ease-in-out;
   transition: all 100ms ease-in-out;
   overflow: auto;
+  height: 100vh;
 }
 
 .small_font {

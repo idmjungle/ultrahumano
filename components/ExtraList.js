@@ -66,7 +66,7 @@ export default function ExtraList({ pst }) {
     <>
       <div
         id="column_info"
-        className="col-sm-6 vh-100 column_morph"
+        className="col-sm-6 overflow-auto column_morph"
       >
         <div
           id="sub_title"
