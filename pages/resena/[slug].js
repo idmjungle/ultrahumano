@@ -73,7 +73,7 @@ export default function ReviewPage({ pst }) {
               className="left_sub"
               dangerouslySetInnerHTML={{ __html: pst.excerpt.rendered }}
             ></span>
-            {/* <ReviewInfo extra={pst.acf} /> */}
+            <ReviewInfo extra={pst.acf} />
 
             <ArticleInfo author={pst.x_author} date={pst.date} />
           </div>
@@ -132,7 +132,7 @@ export default function ReviewPage({ pst }) {
           />
         </div>
 
-        {/* <ArticleRelated relate={relate} type={'reviews'} /> */}
+        <ArticleRelated relate={relate} type={'reviews'} />
 
         <div className="ultra_reviews square_top mt-3 p-2">
           <b>¿Que piensas?</b>
