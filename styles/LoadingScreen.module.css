@@ -7,8 +7,8 @@
   top: 0;
   z-index: 94234;
   width: 100%;
-  -webkit-transform: translateX(-2000px);
-  transform: translateX(-2000px);
+  -webkit-transform: translateX(-3840px);
+  transform: translateX(-3840px);
 }
 
 .load_icon {
@@ -39,8 +39,8 @@
 
 @-webkit-keyframes slide-in-left {
   0% {
-    -webkit-transform: translateX(-2000px);
-    transform: translateX(-2000px);
+    -webkit-transform: translateX(-3840px);
+    transform: translateX(-3840px);
   }
 
   100% {
@@ -51,8 +51,8 @@
 
 @keyframes slide-in-left {
   0% {
-    -webkit-transform: translateX(-2000px);
-    transform: translateX(-2000px);
+    -webkit-transform: translateX(-3840px);
+    transform: translateX(-3840px);
   }
 
   100% {
@@ -68,8 +68,8 @@
   }
 
   100% {
-    -webkit-transform: translateX(-2000px);
-    transform: translateX(-2000px);
+    -webkit-transform: translateX(-3840px);
+    transform: translateX(-3840px);
   }
 }
 
@@ -80,8 +80,8 @@
   }
 
   100% {
-    -webkit-transform: translateX(-2000px);
-    transform: translateX(-2000px);
+    -webkit-transform: translateX(-3840px);
+    transform: translateX(-3840px);
   }
 }
 
