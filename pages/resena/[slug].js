@@ -13,7 +13,7 @@ import ArticleRelated from "@/components/ArticleRelated";
 import ReviewInfo from "@/components/ReviewInfo";
 import ReviewType from "@/components/ReviewType";
 
-export default function ReviewPage({ pst }) {
+export default function ReviewPage({ pst, relate }) {
   const router = useRouter();
   const [pos, setPos] = useState(0);
 
