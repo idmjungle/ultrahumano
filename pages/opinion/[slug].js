@@ -99,7 +99,7 @@ export default function OpinionPage({ pst, relate }) {
       </div>
       <div
         id="main_scroll"
-        className={`${right} vh-100 overflow-auto column_morph`}
+        className={`${right} overflow-auto column_morph`}
       >
         <div
           className="ultra_text full_rounded my-3 p-3 opinion_window"

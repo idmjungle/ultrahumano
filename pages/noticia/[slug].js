@@ -94,7 +94,7 @@ export default function NewsPage({ pst, com }) {
       </div>
       <div
         id="main_scroll"
-        className={`${right} vh-100 overflow-auto column_morph`}
+        className={`${right} overflow-auto column_morph`}
       >
         <article>
           <div
