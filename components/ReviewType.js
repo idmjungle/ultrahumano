@@ -26,7 +26,7 @@ export default function ReviewType({ extra }) {
   return (
     <div
       id="sub_title"
-      className="ultra_reviews full_rounded py-2 px-3 top_left"
+      className="ultra_reviews full_rounded py-2 px-3 mt-3 top_left"
     >
       Rese&ntilde;as / {revType}
     </div>
