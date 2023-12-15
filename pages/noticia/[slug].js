@@ -113,7 +113,7 @@ export default function NewsPage({ pst, com }) {
           />
         </div>
 
-        <h3 className="ultra_text_rev full_rounded my-3 p-3">
+        <h3 className={`ultra_text_rev full_rounded my-3 p-3 ${(com > 0) ? '' : 'd-none'}`}>
           <b>¿Que pensamos?</b>
         </h3>
 
