@@ -21,9 +21,16 @@ export default function Layout({
         <meta name="og:description" content={description} />
         <meta name="og:keywords" content={keywords} />
         <meta name="og:url" content={url} />
+        <meta name="og:type" content="website" />
         <meta name="og:image" content={image} />
         <meta name="og:type" content={type} />
         <meta name="og:locale" content="es_PR" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" content="ultrahumano.com" />
+        <meta name="twitter:url" content={url} />
+        <meta name="twitter:site" content="@ultrahumano" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
         <meta name="google-adsense-account" content="ca-pub-1228324154278252" />
         <link
